@@ -1,4 +1,5 @@
 module.exports = class User {
+	//home page: user data display, game list, dan logout button
     async homePage(req, res){
         try{
 			res.send("main menu");
@@ -26,6 +27,7 @@ module.exports = class User {
 		}
     }
 
+	//game page, menampilkan game dengan id 1
 	async gamePage1(req, res){
         try{
 			res.send("game 1 page");
