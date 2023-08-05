@@ -3,7 +3,6 @@ module.exports = class User {
     async homePage(req, res){
         try{
 			res.send("main menu");
-				
 		}catch (error){
 			console.log(error)
 		}
@@ -12,7 +11,6 @@ module.exports = class User {
 	async loginPage(req, res){
         try{
 			res.send("login page");
-				
 		}catch (error){
 			console.log(error)
 		}
