@@ -1,15 +1,24 @@
-const express = require('express');
-const app = express();
-const PORT = 4000;
-const apiRouter = require('./controller/index')
+const express = require('express')
+const app = express()
+const PORT = 4000
+const model = require('./models')
 
 // middlewares
 app.use(express.urlencoded({extended: true}))
 app.use(express.json())
 
-require('./controller')(app);
 
-app.listen(PORT, () => {
-    console.log(`Listening on http://localhost:${PORT}`)
-  }
-)
+// app.listen(PORT, () => {
+//     console.log(`Listening on http://localhost:${PORT}`)
+//   })
+
+require("./controller")(app);
+
+model.sequelize.authenticate()
+  .then(()=>{
+    app.listen(PORT, () => {
+      console.log(`Listening on http://localhost:${PORT}`)
+    })
+  }).catch((err)=>{
+    console.log(err);
+  })

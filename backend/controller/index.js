@@ -1,19 +1,15 @@
-const User = require('./user_controller')
+const User = require('./user_controller');
 
 const userRoute = () => {
-    // tergantikan dengan React.js
-    // const router = require("express").Router();
-    // const controller = new User();
-    // router.get('/', controller.homePage);
-    // router.get('/login', controller.loginPage);
-    // router.get('/register', controller.registerPage);
-    // router.get('/game/:id', controller.gamePage1);
+    const router = require("express").Router();
+    const userController = new User();
 
-    // return router;
+    router.get("/", userController.allUsers)
+    router.post("/")
+
+    return router;
 }
 
 module.exports = (app) => {
-    app.use('/', userRoute())
-}
-
-// module.exports = userRoute;
+    app.use("/", userRoute());
+};
