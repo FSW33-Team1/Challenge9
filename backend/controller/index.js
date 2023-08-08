@@ -4,8 +4,23 @@ const userRoute = () => {
     const router = require("express").Router();
     const userController = new User();
 
-    router.get("/", userController.allUsers)
-    router.post("/")
+    //post/register player
+    router.post("/register");
+
+    //login player (need auth)
+    router.post("/login");
+
+    //get player data - DONE
+    router.get("/player/:id", userController.findUser);
+
+    //edit player data (semua data kecuali createdAt dan updatedAt)
+    router.put("/player/:id");
+
+    //show game list
+    router.get("/games");
+
+    //show leaderboard (score semua player di suatu game)
+    router.get("/game/:id/leaderboard");
 
     return router;
 }
