@@ -1,0 +1,41 @@
+@import "global";
+
+
+body {
+	background-color: #090a1a !important;
+}
+
+// .sec-1-home {
+
+// }
+
+* {
+	color: #fff;
+}
+
+.sect-2 {
+	padding-top: 60px;
+	.container {
+		.row {
+			margin-bottom: 20px;
+			.col-md-6 {
+				margin-bottom: 20px;
+				padding: 0;
+				background-color: #f0f0f0;
+					.items-text {
+						padding: 40px;
+						h1 {
+							font-family: $releway;
+							font-size: 30px;
+							font-weight: 700;
+						}
+						.btn-custom {
+							background-color: #4477CE;
+							padding: 8px 15px;
+						color: #fff;
+					}
+				}
+			}
+		}
+	}
+}

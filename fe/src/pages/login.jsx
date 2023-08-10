@@ -1,15 +1,7 @@
-import React, { Component } from 'react'
-import {Container} from 'reactstrap'
-import {LoginView} from '../view/LoginView'
+import React from "react";
 
-class Login extends Component {
-    render(){
-        return(
-            <>
-                <LoginView/>
-            </>
-        )
-    }
-}
+const Login = () => {
+  return <div>Halman Login</div>;
+};
 
-export default Login
+export default Login;
