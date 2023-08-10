@@ -1,39 +1,19 @@
-module.exports = class User {
-	//home page: user data display, game list, dan logout button
-    async homePage(req, res){
-        try{
-			res.send("main menu");
-		}catch (error){
-			console.log(error)
-		}
-    }
+const models = require("../models");
 
-	async loginPage(req, res){
-        try{
-			res.send("login page");
-		}catch (error){
-			console.log(error)
-		}
+module.exports = class UserController {
+  async findUser(req, res) {
+    try {
+      const id = parseInt(Object.values(req.params));
+      const data = await models.User.findOne({ where: { id: id } });
+      const result = {
+        status: "ok",
+        data: data,
+      };
+      res.json(result);
+    } catch (error) {
+      console.log(error);
     }
+  }
 
-	async registerPage(req, res){
-        try{
-			res.send("register page");
-				
-		}catch (error){
-			console.log(error)
-		}
-    }
-
-	//game page, menampilkan game dengan id 1
-	async gamePage1(req, res){
-        try{
-			res.send("game 1 page");
-				
-		}catch (error){
-			console.log(error)
-		}
-    }
-
-	
-}
+  async;
+};
