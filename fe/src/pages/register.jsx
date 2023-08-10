@@ -1,16 +1,11 @@
-import React, { Component } from 'react'
-import {Container} from 'reactstrap'
-import {RegisterView} from '../view/RegisterView'
+import React from 'react'
 
-
-class Register extends Component {
-    render(){
-        return(
-            <>
-                <RegisterView/>
-            </>
-        )
-    }
+const Register = () => {
+	return (
+		<div>
+			Halaman Register
+		</div>
+	)
 }
 
 export default Register
