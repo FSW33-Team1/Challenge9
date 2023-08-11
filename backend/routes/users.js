@@ -6,4 +6,11 @@ const router = express.Router();
 /* GET users listing. */
 router.get("/:id", UserController.findUser);
 
+//edit player data -- on progress
+router.put("/:id", UserController.editUser);
+
+//show total points
+router.get('/:id/total-score', UserController.showScore)
+
+
 module.exports = router;

@@ -15,18 +15,6 @@ const userRoute = () => {
     //login player (need auth)
     router.post("/login");
 
-    router.get("/:id/edit", controller.edit);
-    router.get("/:id/delete", controller.delete );
-
-    //get player data - DONE
-    router.get("/player/:id", userController.findUser);
-
-    //edit player data (semua data kecuali createdAt dan updatedAt)
-    router.put("/player/:id");
-
-    //show game list
-    router.get("/games");
-
     //show leaderboard (score semua player di suatu game)
     router.get("/game/:id/leaderboard");
 

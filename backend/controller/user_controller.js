@@ -14,41 +14,49 @@ module.exports = class UserController {
       console.log(error);
     }
   }
-  async register(req, res) {//show register page
-    res.render("register");
-}
- static async create(req, res, next) {
-  try {
-    const { username, email, password} = req.body;
-    
-    if (!username || !email) {
-      return res.status(400).json({
-        result: "Failed",
-        message: "username or email cannot empty",
+
+  async editUser(req, res) {
+    try {
+      const {id} = req.params;
+      const data = await models.User.findOne({
+        where: {
+          id: id
+        }
       });
+      const result = {
+        status: "ok",
+        data: data,
+      };
+      data.email = req.email;
+      data.username = req.username;
+      data.password = req.password;
+      data.total_score = req.total_score;
+      data.bio = req.bio;
+      data.city = req.city;
+      data.social_media_url = req.social_media_url;
+
+      await data.save();
+
+    } catch (error) {
+      console.log(error);
     }
-    if (!password) {
-      return res.status(400).json({
-        result: "Failed",
-        message: "password cannot be empty",
-      });
-    }
-    const newPlayer = {
-      username,
-      email,
-      password: await hashPassword(password),
-      experience: experience ? experience : 0,
-      lvl: experience ? Math.floor(experience / LEVEL_BAR) : 0,
-    };
-    const createdPlayer = await Player.create(newPlayer);
-    if (createdPlayer) {
-      return res.status(201).json({
-        result: "Success",
-        data: createdPlayer,
-      });
-    }
-  } catch (error) {
-    next(error);
   }
-}
+
+  async showScore(req,res){
+    try {
+      const {id} = (req.params);
+      const user = await models.User.findOne({ where: { id: id } });
+
+      if(!user){
+        return res.status(404).json({ error: "Game not found" });
+      }
+
+      res.json(user.total_score);
+    } catch (error) {
+      console.log(error);
+    }
+  }
+
+
+  // async;
 };
