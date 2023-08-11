@@ -1,5 +1,97 @@
 @import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Raleway:wght@200;300;400;500;600;700;800&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Raleway:wght@200;300;400;500;600;700;800&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Raleway:wght@200;300;400;500;600;700;800&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Raleway:wght@200;300;400;500;600;700;800&display=swap");
+section {
+  padding: 50px 0;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: "Raleway", sans-serif;
+}
+
+p, a, li, span {
+  font-family: "Inter", sans-serif;
+}
+
+p {
+  color: #9ca0d2;
+}
+
+a {
+  text-decoration: none !important;
+}
+
+ul {
+  list-style: none;
+}
+
+section {
+  padding: 50px 0;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: "Raleway", sans-serif;
+}
+
+p, a, li, span {
+  font-family: "Inter", sans-serif;
+}
+
+p {
+  color: #9ca0d2;
+}
+
+a {
+  text-decoration: none !important;
+}
+
+ul {
+  list-style: none;
+}
+
+.navbar {
+  background-color: #090a1a !important;
+}
+.navbar .container .collapse ul {
+  -moz-column-gap: 10px;
+       column-gap: 10px;
+}
+.navbar .container .collapse ul li .nav-link {
+  color: #9ca0d2;
+}
+.navbar .container .collapse .btn-regiter {
+  background-color: #001aff;
+  padding: 8px 12px;
+  border-radius: 10px;
+  color: #fff;
+  margin-left: 20px;
+}
+
+section {
+  padding: 50px 0;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: "Raleway", sans-serif;
+}
+
+p, a, li, span {
+  font-family: "Inter", sans-serif;
+}
+
+p {
+  color: #9ca0d2;
+}
+
+a {
+  text-decoration: none !important;
+}
+
+ul {
+  list-style: none;
+}
+
 body {
   background-color: #090a1a !important;
 }
@@ -8,27 +100,97 @@ body {
   color: #fff;
 }
 
-.sect-2 {
+.sect-2-home {
   padding-top: 60px;
 }
-.sect-2 .container .row {
-  margin-bottom: 20px;
+.sect-2-home .container .row .col-md-6 h3 {
+  font-size: 15px;
+  color: #9ca0d2;
 }
-.sect-2 .container .row .col-md-6 {
-  margin-bottom: 20px;
-  padding: 0;
-  background-color: #f0f0f0;
-}
-.sect-2 .container .row .col-md-6 .items-text {
-  padding: 40px;
-}
-.sect-2 .container .row .col-md-6 .items-text h1 {
-  font-family: "Raleway", sans-serif;
-  font-size: 30px;
+.sect-2-home .container .row .col-md-6 h1 {
   font-weight: 700;
+  margin-bottom: 20px;
 }
-.sect-2 .container .row .col-md-6 .items-text .btn-custom {
-  background-color: #4477CE;
-  padding: 8px 15px;
+
+.col-md-3 {
+  margin-bottom: 25px;
+}
+.col-md-3 .card {
+  background-color: #16182d;
+  border-radius: 10px;
+}
+.col-md-3 .card .card-header {
+  padding: 0;
+}
+.col-md-3 .card .card-header img {
+  border-radius: 7px;
+}
+.col-md-3 .card .card-body {
+  border-bottom: 1px solid rgba(156, 160, 210, 0.4431372549);
+  width: 90%;
+  margin: auto;
+}
+.col-md-3 .card .card-body h5 {
   color: #fff;
+}
+.col-md-3 .card a {
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  color: #fff;
+  margin: 20px auto 15px;
+  border-radius: 7px;
+  font-weight: 700;
+  text-decoration: none;
+  padding: 8px 14px;
+  background-color: #001aff;
+}
+
+section {
+  padding: 50px 0;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: "Raleway", sans-serif;
+}
+
+p, a, li, span {
+  font-family: "Inter", sans-serif;
+}
+
+p {
+  color: #9ca0d2;
+}
+
+a {
+  text-decoration: none !important;
+}
+
+ul {
+  list-style: none;
+}
+
+footer .container .row {
+  justify-content: space-around;
+}
+footer .container .row .col-md-4 h2 {
+  letter-spacing: 2px;
+}
+footer .container .row .col-md-2 h3 {
+  font-size: 17px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  margin-bottom: 15px;
+}
+footer .container .row .col-md-2 ul {
+  padding-left: 0;
+}
+footer .container .row .col-md-2 ul li {
+  margin-bottom: 5px;
+}
+footer .container .row .col-md-2 ul li a {
+  color: #9ca0d2;
+}
+footer .container .text-copyright p {
+  font-size: 14px;
 }/*# sourceMappingURL=custom.css.map */

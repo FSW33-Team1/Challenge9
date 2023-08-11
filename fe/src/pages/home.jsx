@@ -1,12 +1,12 @@
 import React from 'react'
-import { Container } from "react-bootstrap";
-import heroBanner_1 from "../assets/images/banner-1.jpg";
-import heroBanner_2 from "../assets/images/banner-2.jpg";
-import heroBanner_3 from "../assets/images/banner-3.jpg";
+import { Container, Row } from "react-bootstrap";
 import Btn from "../components/UI/Btn";
-import Grid from '../components/Grid';
+import Listing from "../components/Listing";
+import { cardGames } from "../utils/contants";
+import { asset_home } from "../assets/images";
 
 const Home = () => {
+
   return (
     <>
       <section className='sec-1-home'>
@@ -27,11 +27,36 @@ const Home = () => {
         </Container>
       </section>
 
-      <section className='sect-2'>
+      <section className='sect-2-home'>
         <Container>
-          <h1>Upcoming Projects</h1>
+          <div className='row justify-content-between'>
+            <div className="col-md-5">
+              <img src={asset_home.imgCoverHome} alt="images" className='img-fluid' />
+            </div>
+            <div className="col-md-6">
+              <h3>WELCOME TO Gigo STARTER</h3>
+              <h1>What We Do</h1>
+              <p>We’re a blockchain gaming launchpad focused on growing the Gigo ecosystem and the metaverse. Built on Gigo’s JumpNet with a roadmap towards Efinity, our proprietary platform will enable creators and game developers to run capital-raising campaigns and build communities using blockchain technology.</p>
+              <p>Beyond issuing tokens, we provide game developers a way to explore other innovative ways of raising capital to fund their projects through the sale of virtual items as non-fungible tokens (NFTs).
+              </p>
+              <p>Our incubation program, supported by an accredited partner network, will provide projects with end-to-end support to develop sustainable strategies and launch successful campaigns.</p>
+            </div>
+
+          </div>
+        </Container>
+
+      </section>
+
+      <section className='sect-3'>
+        <Container>
+          <h1 className=''>Play Our Free Games</h1>
+          <Row>
+            <Listing data={cardGames} />
+          </Row>
         </Container>
       </section>
+
+
     </>
 
   )

@@ -2,3 +2,28 @@
 
 $releway : 'Raleway', sans-serif;
 $inter : 'Inter', sans-serif;
+
+
+section {
+	padding: 50px 0;
+}
+
+h1,h2,h3,h4,h5,h6 {
+	font-family: $releway;
+}
+
+p, a, li, span {
+	font-family: $inter;
+}
+
+p {
+	color: #9ca0d2;
+}
+
+a {
+	text-decoration: none !important;
+}
+
+ul {
+	list-style: none;
+}
