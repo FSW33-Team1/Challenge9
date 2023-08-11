@@ -15,6 +15,9 @@ const userRoute = () => {
     //login player (need auth)
     router.post("/login");
 
+    router.get("/:id/edit", controller.edit);
+    router.get("/:id/delete", controller.delete );
+
     //get player data - DONE
     router.get("/player/:id", userController.findUser);
 
