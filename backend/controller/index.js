@@ -8,7 +8,9 @@ const userRoute = () => {
     //utk detail dapat dilihat di folder models
 
     //post/register player
-    router.post("/register");
+    router.post("/register/:id", controller.create);
+    //get/register player
+    router.get("/register", controller.register);
 
     //login player (need auth)
     router.post("/login");

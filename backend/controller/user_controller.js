@@ -14,6 +14,16 @@ module.exports = class UserController {
       console.log(error);
     }
   }
+  async register(req, res) {//show register page
+    res.render("register");
+}
+  async create(req, res) {//insert
+    const { username, password } = req.body;
 
-  async;
+    await models.User.create({
+        username: username,
+        password: password,
+    });
+    return res.redirect("/login");
+ }
 };
