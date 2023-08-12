@@ -10,7 +10,9 @@ router.get("/", GameController.index);
 router.get("/:id", GameController.show);
 
 //show playcount
-router.get('/:id/play-count', GameController.showPlayCount)
+router.get('/:id/play-count', GameController.showPlayCount);
 
+//show description
+router.get('/:id/description', GameController.showDescription);
 
 module.exports = router;

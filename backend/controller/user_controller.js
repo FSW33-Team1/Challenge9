@@ -29,11 +29,46 @@ module.exports = class UserController {
       };
       data.email = req.email;
       data.username = req.username;
-      data.password = req.password;
       data.total_score = req.total_score;
       data.bio = req.bio;
       data.city = req.city;
       data.social_media_url = req.social_media_url;
+
+      await data.save();
+
+    } catch (error) {
+      console.log(error);
+    }
+  }
+
+  async changePassword(req, res) {
+    try {
+      const {id} = req.params;
+      const data = await models.User.findOne({
+        where: {
+          id: id
+        }
+      });
+
+      data.password = req.password;
+
+      await data.save();
+
+    } catch (error) {
+      console.log(error);
+    }
+  }
+
+  async addPoint(req, res) {
+    try {
+      const {id} = req.params;
+      const data = await models.User.findOne({
+        where: {
+          id: id
+        }
+      });
+
+      data.total_score +=1;
 
       await data.save();
 

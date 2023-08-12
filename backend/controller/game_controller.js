@@ -35,4 +35,15 @@ module.exports = class GameController {
     res.status(200).json(game.play_count);
   }
 
+  async showDescription(req,res){
+    const { id } = req.params;
+    const game = await models.Game.findOne({ where: { id: id } });
+
+    if (!game) {
+      return res.status(404).json({ error: "Game not found" });
+    }
+
+    res.status(200).json(game.description);
+  }
+
 };
