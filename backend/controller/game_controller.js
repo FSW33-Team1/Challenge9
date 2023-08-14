@@ -25,14 +25,18 @@ module.exports = class GameController {
   }
 
   async showPlayCount(req,res){
-    const { id } = req.params;
-    const game = await models.Game.findOne({ where: { id: id } });
+    try{
+      const { id } = (req.params);
+      const game = await models.Game.findOne({ where: { id: id } });
 
-    if (!game) {
-      return res.status(404).json({ error: "Game not found" });
-    }
+      if (!game) {
+        return res.status(404).json({ error: "Game not found" });
+      }
 
-    res.status(200).json(game.play_count);
+      res.json(game.play_count);
+    } catch (error) {
+          console.log(error);
+    }  
   }
 
   async showDescription(req,res){

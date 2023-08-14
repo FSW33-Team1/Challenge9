@@ -1,10 +1,15 @@
 const models = require("../models");
-const { user } = require("../models");
 module.exports = class UserController {
+  //done
   async findUser(req, res) {
     try {
       const id = parseInt(Object.values(req.params));
       const data = await models.User.findOne({ where: { id: id } });
+
+      if(!data){
+        return res.status(404).json({ error: "User not found" });
+      }
+
       const result = {
         status: "ok",
         data: data,
@@ -15,6 +20,31 @@ module.exports = class UserController {
     }
   }
 
+  //done
+  async registerUser(req, res, next){
+    try {
+      const {username, password} = req.body;
+      const registeredUser = await models.User.findOne({where: {username: username}});
+      if(!username || !password){
+        return res.status(400).send('Username and Password required');
+      } else if (registeredUser !== null){
+        res.send('Username taken!')
+      } else {
+        models.User.create(req.body)
+          .then(()=>{
+            console.log('user created: ' + username)
+            res.json(req.body)
+          })
+          .catch(err => next(err))
+
+        // return models.User.create(req.body)
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  }
+
+  //done
   async editUser(req, res) {
     try {
       const {id} = req.params;
@@ -23,25 +53,23 @@ module.exports = class UserController {
           id: id
         }
       });
-      const result = {
-        status: "ok",
-        data: data,
-      };
-      data.email = req.email;
-      data.username = req.username;
-      data.total_score = req.total_score;
-      data.bio = req.bio;
-      data.city = req.city;
-      data.social_media_url = req.social_media_url;
+
+      data.email = req.body.email;
+      data.username = req.body.username;
+      data.total_score = req.body.total_score;
+      data.bio = req.body.bio;
+      data.city = req.body.city;
+      data.social_media_url = req.body.social_media_url;
 
       await data.save();
+      res.json(req.body);
 
     } catch (error) {
       console.log(error);
     }
   }
 
-  async changePassword(req, res) {
+  async resetPassword(req, res) {
     try {
       const {id} = req.params;
       const data = await models.User.findOne({
@@ -50,8 +78,8 @@ module.exports = class UserController {
         }
       });
 
-      data.password = req.password;
-
+      data.password = req.body.password;
+      res.send('password reset done')
       await data.save();
 
     } catch (error) {

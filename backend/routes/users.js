@@ -6,11 +6,14 @@ const router = express.Router();
 /* GET users listing. */
 router.get("/:id", UserController.findUser);
 
-//edit player data -- on progress
+//edit player data
 router.put("/:id", UserController.editUser);
 
 //show total points
-router.get('/:id/total-score', UserController.showScore)
+router.get('/:id/total-score', UserController.showScore);
+
+//reset password
+router.put('/:id/reset-password', UserController.resetPassword);
 
 
 module.exports = router;
