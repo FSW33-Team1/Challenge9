@@ -4,7 +4,6 @@ import { Link } from "react-router-dom";
 
 const Footer = () => {
 
-
 	const linkFooter = [
 		{
 			title: "About Us",
@@ -56,7 +55,6 @@ const Footer = () => {
 			]
 		},
 	]
-
 
 	return (
 		<footer>

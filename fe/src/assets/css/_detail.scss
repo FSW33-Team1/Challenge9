@@ -1,0 +1,16 @@
+@import "global";
+
+.sect-1-detail {
+	background: url("../images/detail-game/bg-hero.webp") center no-repeat;
+	height: 40vh;
+	.container {
+		.content-hero {
+			h1 {
+				font-size: 90px;
+				text-shadow: 3px 3px 0px #b154f0;
+				letter-spacing: 5px;
+				font-family: $metal;
+			}
+		}
+	}
+}

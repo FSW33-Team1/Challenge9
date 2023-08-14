@@ -5,23 +5,15 @@ import { RiTelegramFill } from "react-icons/ri";
 
 export const cardGames = [
   {
-    imgUrl: asset_card.imgCard_1,
+    imgUrl: asset_card.imgPopularGame1,
     title: "Hydraverse 1",
   },
   {
-    imgUrl: asset_card.imgCard_2,
+    imgUrl: asset_card.imgPopularGame2,
     title: "Hydraverse 2",
   },
   {
-    imgUrl: asset_card.imgCard_3,
-    title: "Hydraverse 3",
-  },
-  {
-    imgUrl: asset_card.imgCard_3,
-    title: "Hydraverse 3",
-  },
-  {
-    imgUrl: asset_card.imgCard_3,
+    imgUrl: asset_card.imgPopularGame3,
     title: "Hydraverse 3",
   },
 ];
@@ -44,3 +36,5 @@ export const dataMeetAvtar = [
     // ],
   },
 ];
+
+export const popularGames = [{}];

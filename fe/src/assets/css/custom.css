@@ -1,13 +1,12 @@
-@import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Raleway:wght@200;300;400;500;600;700;800&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Raleway:wght@200;300;400;500;600;700;800&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Raleway:wght@200;300;400;500;600;700;800&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Raleway:wght@200;300;400;500;600;700;800&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Exo:ital,wght@0,300;0,400;0,500;0,600;1,400&family=Inter:wght@300;400;500;600;700&family=Metal+Mania&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Exo:ital,wght@0,300;0,400;0,500;0,600;1,400&family=Inter:wght@300;400;500;600;700&family=Metal+Mania&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Exo:ital,wght@0,300;0,400;0,500;0,600;1,400&family=Inter:wght@300;400;500;600;700&family=Metal+Mania&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Exo:ital,wght@0,300;0,400;0,500;0,600;1,400&family=Inter:wght@300;400;500;600;700&family=Metal+Mania&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Exo:ital,wght@0,300;0,400;0,500;0,600;1,400&family=Inter:wght@300;400;500;600;700&family=Metal+Mania&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Exo:ital,wght@0,300;0,400;0,500;0,600;1,400&family=Inter:wght@300;400;500;600;700&family=Metal+Mania&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Exo:ital,wght@0,300;0,400;0,500;0,600;1,400&family=Inter:wght@300;400;500;600;700&family=Metal+Mania&display=swap");
 section {
   padding: 50px 0;
-}
-
-h1, h2, h3, h4, h5, h6 {
-  font-family: "Raleway", sans-serif;
 }
 
 p, a, li, span {
@@ -26,12 +25,30 @@ ul {
   list-style: none;
 }
 
-section {
-  padding: 50px 0;
+.animate_pulse {
+  -webkit-animation: pulse 3s infinite ease-in-out alternate;
+          animation: pulse 3s infinite ease-in-out alternate;
 }
 
-h1, h2, h3, h4, h5, h6 {
-  font-family: "Raleway", sans-serif;
+@-webkit-keyframes pulse {
+  from {
+    transform: scale(0.9);
+  }
+  to {
+    transform: scale(1);
+  }
+}
+
+@keyframes pulse {
+  from {
+    transform: scale(0.9);
+  }
+  to {
+    transform: scale(1);
+  }
+}
+section {
+  padding: 50px 0;
 }
 
 p, a, li, span {
@@ -50,8 +67,21 @@ ul {
   list-style: none;
 }
 
+.animate_pulse {
+  -webkit-animation: pulse 3s infinite ease-in-out alternate;
+          animation: pulse 3s infinite ease-in-out alternate;
+}
+
+@keyframes pulse {
+  from {
+    transform: scale(0.9);
+  }
+  to {
+    transform: scale(1);
+  }
+}
 .navbar {
-  background-color: #090a1a !important;
+  background-color: rgba(20, 14, 56, 0.9) !important;
 }
 .navbar .container .collapse ul {
   -moz-column-gap: 10px;
@@ -72,10 +102,6 @@ section {
   padding: 50px 0;
 }
 
-h1, h2, h3, h4, h5, h6 {
-  font-family: "Raleway", sans-serif;
-}
-
 p, a, li, span {
   font-family: "Inter", sans-serif;
 }
@@ -92,12 +118,59 @@ ul {
   list-style: none;
 }
 
+.animate_pulse {
+  -webkit-animation: pulse 3s infinite ease-in-out alternate;
+          animation: pulse 3s infinite ease-in-out alternate;
+}
+
+@keyframes pulse {
+  from {
+    transform: scale(0.9);
+  }
+  to {
+    transform: scale(1);
+  }
+}
 body {
-  background-color: #090a1a !important;
+  background: url("../images/home/body-bg.webp");
 }
 
 * {
   color: #fff;
+}
+
+.sec-1-home {
+  background: url("../images/home/bg-cover-hero.webp") center center no-repeat;
+  height: 100vh;
+}
+.sec-1-home .container {
+  padding-top: 50px;
+}
+.sec-1-home .container .row .hero-left h1 {
+  margin-bottom: 30px;
+  font-size: 95px;
+  text-shadow: 3px 3px 0px #b154f0;
+  letter-spacing: 2px;
+  height: 240px;
+}
+.sec-1-home .container .row .hero-left h1 span {
+  font-family: "Metal Mania", cursive;
+}
+.sec-1-home .container .row .hero-left p {
+  color: #fff;
+  font-family: "Exo", sans-serif;
+  font-size: 30px;
+  font-weight: 600;
+  text-transform: capitalize;
+}
+.sec-1-home .container .row .hero-left button {
+  background-color: #b154f0;
+  border: 3px solid #dead27;
+  padding: 10px 30px;
+  font-family: "Metal Mania", cursive;
+  letter-spacing: 5px;
+  color: #fff;
+  font-weight: 600;
 }
 
 .sect-2-home {
@@ -150,8 +223,48 @@ section {
   padding: 50px 0;
 }
 
-h1, h2, h3, h4, h5, h6 {
-  font-family: "Raleway", sans-serif;
+p, a, li, span {
+  font-family: "Inter", sans-serif;
+}
+
+p {
+  color: #9ca0d2;
+}
+
+a {
+  text-decoration: none !important;
+}
+
+ul {
+  list-style: none;
+}
+
+.animate_pulse {
+  -webkit-animation: pulse 3s infinite ease-in-out alternate;
+          animation: pulse 3s infinite ease-in-out alternate;
+}
+
+@keyframes pulse {
+  from {
+    transform: scale(0.9);
+  }
+  to {
+    transform: scale(1);
+  }
+}
+.sect-1-detail {
+  background: url("../images/detail-game/bg-hero.webp") center no-repeat;
+  height: 40vh;
+}
+.sect-1-detail .container .content-hero h1 {
+  font-size: 90px;
+  text-shadow: 3px 3px 0px #b154f0;
+  letter-spacing: 5px;
+  font-family: "Metal Mania", cursive;
+}
+
+section {
+  padding: 50px 0;
 }
 
 p, a, li, span {
@@ -170,6 +283,145 @@ ul {
   list-style: none;
 }
 
+.animate_pulse {
+  -webkit-animation: pulse 3s infinite ease-in-out alternate;
+          animation: pulse 3s infinite ease-in-out alternate;
+}
+
+@keyframes pulse {
+  from {
+    transform: scale(0.9);
+  }
+  to {
+    transform: scale(1);
+  }
+}
+.sect-login {
+  padding: 80px 0;
+}
+.sect-login .container .row {
+  justify-content: center;
+  -moz-column-gap: 50px;
+       column-gap: 50px;
+}
+.sect-login .container .row .block-login h3 {
+  font-size: 45px;
+  font-family: "Metal Mania", cursive;
+  letter-spacing: 3px;
+  margin-bottom: 30px;
+}
+.sect-login .container .row .block-login form input {
+  background-color: transparent !important;
+  border: 2px solid #281e4d;
+  color: #fff;
+}
+.sect-login .container .row .block-login form input:focus {
+  box-shadow: none;
+  border-color: 2px solid #b154f0;
+}
+.sect-login .container .row .block-login form input::-moz-placeholder {
+  color: rgba(255, 255, 255, 0.3960784314);
+}
+.sect-login .container .row .block-login form input:-ms-input-placeholder {
+  color: rgba(255, 255, 255, 0.3960784314);
+}
+.sect-login .container .row .block-login form input::placeholder {
+  color: rgba(255, 255, 255, 0.3960784314);
+}
+.sect-login .container .row .block-login form button {
+  background: url("../images/home/btn-bg.webp") center center no-repeat;
+  line-height: 73px;
+  margin: 30px auto 40px;
+  display: flex;
+  justify-content: center;
+  height: auto;
+  font-size: 23px;
+  width: 230px;
+  padding: 0px 48px;
+  border-radius: 25px;
+  background-attachment: scroll;
+  background-size: cover;
+  position: relative;
+  z-index: 9;
+  color: #ffffff;
+  border: 0;
+  font-weight: 700;
+  text-decoration: none;
+}
+.sect-login .container .row .block-login p {
+  text-align: center;
+  color: #fff;
+}
+.sect-login .container .row .block-login p a {
+  color: #001aff;
+}
+
+section {
+  padding: 50px 0;
+}
+
+p, a, li, span {
+  font-family: "Inter", sans-serif;
+}
+
+p {
+  color: #9ca0d2;
+}
+
+a {
+  text-decoration: none !important;
+}
+
+ul {
+  list-style: none;
+}
+
+.animate_pulse {
+  -webkit-animation: pulse 3s infinite ease-in-out alternate;
+          animation: pulse 3s infinite ease-in-out alternate;
+}
+
+@keyframes pulse {
+  from {
+    transform: scale(0.9);
+  }
+  to {
+    transform: scale(1);
+  }
+}
+section {
+  padding: 50px 0;
+}
+
+p, a, li, span {
+  font-family: "Inter", sans-serif;
+}
+
+p {
+  color: #9ca0d2;
+}
+
+a {
+  text-decoration: none !important;
+}
+
+ul {
+  list-style: none;
+}
+
+.animate_pulse {
+  -webkit-animation: pulse 3s infinite ease-in-out alternate;
+          animation: pulse 3s infinite ease-in-out alternate;
+}
+
+@keyframes pulse {
+  from {
+    transform: scale(0.9);
+  }
+  to {
+    transform: scale(1);
+  }
+}
 footer .container .row {
   justify-content: space-around;
 }
