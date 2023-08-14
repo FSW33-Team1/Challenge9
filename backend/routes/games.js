@@ -3,8 +3,16 @@ const controller = require("../controller/game_controller");
 const GameController = new controller();
 const router = express.Router();
 
-/* GET users listing. */
+//get all games
 router.get("/", GameController.index);
+
+//show one game
 router.get("/:id", GameController.show);
+
+//show playcount
+router.get('/:id/play-count', GameController.showPlayCount);
+
+//show description
+router.get('/:id/description', GameController.showDescription);
 
 module.exports = router;

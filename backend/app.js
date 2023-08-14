@@ -4,10 +4,6 @@ const path = require("path");
 const cookieParser = require("cookie-parser");
 const logger = require("morgan");
 
-const indexRouter = require("./routes/index");
-const usersRouter = require("./routes/users");
-const gamesRouter = require("./routes/games");
-
 const app = express();
 
 // view engine setup
@@ -19,6 +15,10 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, "public")));
+
+const indexRouter = require("./routes/index");
+const usersRouter = require("./routes/users");
+const gamesRouter = require("./routes/games");
 
 app.use("/", indexRouter);
 app.use("/player", usersRouter);
@@ -37,7 +37,7 @@ app.use(function (err, req, res, next) {
 
   // render the error page
   res.status(err.status || 500);
-  res.render("error");
+  // res.render("error");
 });
 
 module.exports = app;
