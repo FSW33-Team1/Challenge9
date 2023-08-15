@@ -2,7 +2,7 @@ import React from 'react'
 import { Link } from "react-router-dom";
 import { asset_home } from "../../assets/images";
 
-const Navbar = () => {
+const Navbar = ({ user, logOut }) => {
 	return (
 		<nav className="navbar navbar-expand-lg ">
 			<div className="container">
@@ -25,7 +25,10 @@ const Navbar = () => {
 							<Link className="nav-link" aria-disabled="true">Disabled</Link>
 						</li>
 					</ul>
-					<Link to={"/register"} className='btn-regiter'>Register</Link>
+					{user ? <span>Hello <Link to={"/profile"}>{user?.username}</Link>, <Link to="/login" className="nav-link" onClick={logOut}>
+						Logout
+					</Link>
+					</span> : <Link to={"/register"} className='btn-regiter'>Register</Link>}
 				</div>
 			</div>
 		</nav>
