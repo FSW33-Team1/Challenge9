@@ -1,5 +1,4 @@
-import { asset_card } from "../assets/images";
-import { asset_home } from "../assets/images";
+import { asset_card, asset_home, asset_games } from "../assets/images";
 import { BiLogoTiktok } from "react-icons/bi";
 import { RiTelegramFill } from "react-icons/ri";
 
@@ -34,6 +33,27 @@ export const dataMeetAvtar = [
     //     tiktok: <BiLogoTiktok />,
     //   },
     // ],
+  },
+];
+
+export const imgGames = [
+  {
+    imgUrl: asset_games.img_1,
+  },
+  {
+    imgUrl: asset_games.img_2,
+  },
+  {
+    imgUrl: asset_games.img_3,
+  },
+  {
+    imgUrl: asset_games.img_4,
+  },
+  {
+    imgUrl: asset_games.img_5,
+  },
+  {
+    imgUrl: asset_games.img_6,
   },
 ];
 

@@ -14,3 +14,29 @@
 		}
 	}
 }
+
+.sect-2-detail {
+	.container { 
+		.image-cover {
+			margin-bottom: 15px;
+			img {
+				width: 80%;
+				margin: 0 auto;
+				text-align: center;
+			}
+			button {
+				background-color: #b154f0;
+				color: #fff;
+				border: 0;
+				padding: 8px 0;
+				width: 60%;
+				margin: auto;
+				font-weight: 600;
+				font-size: 17px;
+				span {
+					font-size: 20px;
+				}
+			}
+		}
+	}
+}

@@ -1,6 +1,7 @@
 const createError = require("http-errors");
 const express = require("express");
 const path = require("path");
+const cors = require("cors");
 const cookieParser = require("cookie-parser");
 const logger = require("morgan");
 const cors = require("cors");
@@ -13,6 +14,7 @@ var corsOptions = {
 app.use(cors(corsOptions));
 
 // view engine setup
+app.use(cors());
 app.set("views", path.join(__dirname, "views"));
 app.set("view engine", "jade");
 
