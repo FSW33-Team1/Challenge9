@@ -1,5 +1,5 @@
-import React from 'react'
-import { useState } from "react";
+import React, { useEffect, useState, useRef } from 'react'
+import axios from "../../lib/axios";
 import gambarBatu from '../assets/images/batu.png'
 import gambarGunting from '../assets/images/gunting.png'
 import gambarKertas from '../assets/images/kertas.png'
@@ -21,150 +21,165 @@ const Game = () => {
     const [isComPaper, setIsComPaper] = useState(false)
 
     const [gameStatus, setGameStatus] = useState('default')
-    const [logic, setLogic] = useState(1)
+    const [logic, setLogic] = useState(-1)
+
+    const refId = useRef();
+    const refTotalScore = useRef();
+
+    function addPoint(e) {
+        e.preventDefault();
+        const id = refId.current.value;
+        const dataPlayer = {
+            total_score: refTotalScore.current.value
+        };
+
+        axios
+            .put(`/player/${id}/add-point`, dataPlayer)
+            .then((data) => {
+                if (data.status != 200) {
+                  alert("failed to save data");
+                }
+            })
+            .catch((err) => {
+                console.log(err);
+            })
+    };
 
 
-function getRandomArbitrary(min, max) {
-    return Math.floor(Math.random() * (max - min) + min);
-}
-  
-function comChoose(){
-    let result = getRandomArbitrary(1,4)
-    if (result == 1){
-        setIsComRock(true)
-    } else if (result == 2){
-        setIsComScissor(true)
-    } else{
-        setIsComPaper(true)
+    function getRandomArbitrary(min, max) {
+        return Math.floor(Math.random() * (max - min) + min);
     }
-}
-
-function changeMidText(){
-    if(gameStatus === 'default'){
-        return('text-vs');
-    } else if (gameStatus === 'win'){
-        return('text-win')
-    } else if (gameStatus === 'lose'){
-        return('text-lose')
-    } else{
-        return('text-draw')
-    }
-}
-
-class Result{
-    constructor(text, color){
-        this.text = text;
-        this.color = color;
+    
+    function comChoose(){
+        let result = getRandomArbitrary(1,4)
+        if (result == 1){
+            setIsComRock(true)
+        } else if (result == 2){
+            setIsComScissor(true)
+        } else{
+            setIsComPaper(true)
+        }
     }
 
-    show(){
-        midText.innerHTML = this.text;
-        midText.style.backgroundColor = this.color;
-        midText.style.color = 'white';
-        midText.style.borderRadius = '25px';
-        midText.style.transform = 'rotate(-30deg)';
-        midText.style.fontSize = '5vw';
-        midText.style.padding = '20px';
+    function changeMidText(){
+        if(gameStatus === 'default'){
+            return('text-vs');
+        } else if (gameStatus === 'win'){
+            return('text-win')
+        } else if (gameStatus === 'lose'){
+            return('text-lose')
+        } else{
+            return('text-draw')
+        }
     }
-}
 
-let win = new Result('YOU WIN', 'green')
-let lose = new Result('YOU LOSE', 'red')
-let draw = new Result('DRAW', 'orange')
+    class Result{
+        constructor(text, color){
+            this.text = text;
+            this.color = color;
+        }
 
-
-function refreshBoard(){
-    // midText.innerHTML = "VS";
-    // midText.style.backgroundColor = '';
-    // midText.style.color = '';
-    // midText.style.borderRadius = '';
-    // midText.style.transform = '';
-    // midText.style.fontSize = '';
-    // midText.style.padding = '';
-    console.log('board refresh')
-    setGameStatus('default');
-
-    setIsRock(false);
-    setIsPaper(false);
-    setIsScissor(false);
-
-    setIsComRock(false);
-    setIsComPaper(false);
-    setIsComScissor(false);
-}
-
-
-function condition(){
-    comChoose()
-    if((isRock && isComRock) || (isScissor && isComScissor) || (isPaper && isComPaper)){
-        // showDraw();
-        
-        disableEnable();
-        setGameStatus('draw');
-    } else if (isRock && isComPaper){
-        // showLose();
-        disableEnable();
-        setGameStatus('lose');
-    } else if (isRock && isComScissor){
-        // showWin();
-        disableEnable();
-        setGameStatus('win');
-    } else if (isScissor && isComPaper){
-        // showWin();
-        disableEnable();
-        setGameStatus('win');
-    } else if (isScissor && isComRock){
-        // showLose();
-        disableEnable();
-        setGameStatus('lose');
-    } else if (isPaper && isComScissor){
-        // showLose();
-        disableEnable();
-        setGameStatus('lose');
-    } else if (isPaper && isComRock){
-        // showWin();
-        disableEnable();
-        setGameStatus('win');
+        show(){
+            midText.innerHTML = this.text;
+            midText.style.backgroundColor = this.color;
+            midText.style.color = 'white';
+            midText.style.borderRadius = '25px';
+            midText.style.transform = 'rotate(-30deg)';
+            midText.style.fontSize = '5vw';
+            midText.style.padding = '20px';
+        }
     }
-}
 
-function disableEnable(){
-    setLogic(logic * -1)
-    if (logic === 1){
-        document.getElementById('1').style.pointerEvents = 'none';
-        document.getElementById('2').style.pointerEvents = 'none';
-        document.getElementById('3').style.pointerEvents = 'none';
-        console.log('disableEnable: stop, ' + logic);
+    let win = new Result('YOU WIN', 'green')
+    let lose = new Result('YOU LOSE', 'red')
+    let draw = new Result('DRAW', 'orange')
+
+
+    function refreshBoard(){
+        setGameStatus('default');
+
+        setIsRock(false);
+        setIsPaper(false);
+        setIsScissor(false);
+
+        setIsComRock(false);
+        setIsComPaper(false);
+        setIsComScissor(false);
     }
-    if (logic !== 1){
-        document.getElementById('1').style.pointerEvents = 'auto'; 
-        document.getElementById('2').style.pointerEvents = 'auto'; 
-        document.getElementById('3').style.pointerEvents = 'auto'; 
-        console.log('disableEnable: start, ' + logic);
+
+
+    function condition(){
+        comChoose()
+        if((playerChoice && isComRock) || (isScissor && isComScissor) || (isPaper && isComPaper)){
+            // showDraw();
+            disableEnable();
+            setGameStatus('draw');
+        } else if (isRock && isComPaper){
+            // showLose();
+            disableEnable();
+            setGameStatus('lose');
+        } else if (isRock && isComScissor){
+            // showWin();
+            disableEnable();
+            setGameStatus('win');
+            addPoint();
+        } else if (isScissor && isComPaper){
+            // showWin();
+            disableEnable();
+            setGameStatus('win');
+            addPoint();
+        } else if (isScissor && isComRock){
+            // showLose();
+            disableEnable();
+            setGameStatus('lose');
+        } else if (isPaper && isComScissor){
+            // showLose();
+            disableEnable();
+            setGameStatus('lose');
+        } else if (isPaper && isComRock){
+            // showWin();
+            disableEnable();
+            setGameStatus('win');
+            addPoint();
+        }
     }
-}
 
+    function disableEnable(){
+        let newLogic = logic * -1;
+        setLogic(newLogic);
+        if (logic === 1){
+            document.getElementById('1').style.pointerEvents = 'none';
+            document.getElementById('2').style.pointerEvents = 'none';
+            document.getElementById('3').style.pointerEvents = 'none';
+            console.log('disableEnable: stop, ' + logic);
+        }
+        if (logic !== 1){
+            document.getElementById('1').style.pointerEvents = 'auto'; 
+            document.getElementById('2').style.pointerEvents = 'auto'; 
+            document.getElementById('3').style.pointerEvents = 'auto'; 
+            console.log('disableEnable: start, ' + logic);
+        }
+    }
 
-function decideResult(choice){
-    if (choice === 'batu'){
-        setIsRock(true);
+    function decideResult(choice){
+        console.log('click once')
+        if (choice === 'batu'){
+            setIsRock(true)
+        } else if (choice === 'gunting'){
+            setIsScissor(true);
+        } else {
+            setIsPaper(true);
+        }
         condition();
-    } else if (choice === 'gunting'){
-        setIsScissor(true);
-        condition();
-    } else {
-        setIsPaper(true);
-        condition();
     }
-}
 
-function refresh(){
-    console.log('refresh' + logic)
-    if (logic == 1){
-    disableEnable();
-    refreshBoard();
-    }   
-}
+    function refresh(){
+        console.log('refresh' + logic)
+        if (logic == 1){
+        disableEnable();
+        refreshBoard();
+        }   
+    }
 	return (
 		<>
         <div className="game-container">

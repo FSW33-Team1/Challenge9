@@ -12,6 +12,9 @@ router.put("/:id", UserController.editUser);
 //show total points
 router.get('/:id/total-score', UserController.showScore);
 
+//add points
+router.put('/:id/add-point', UserController.addPoint);
+
 //reset password
 router.put('/:id/reset-password', UserController.resetPassword);
 
