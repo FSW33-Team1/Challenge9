@@ -10,7 +10,6 @@ const Game = () => {
 
     let midText = document.getElementById('mid-text')
     let playerChoice
-    let comFinalChoice
 
     const [isRock, setIsRock] = useState(false)
     const [isScissor, setIsScissor] = useState(false)
