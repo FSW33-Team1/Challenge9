@@ -21,6 +21,7 @@ const Game = () => {
     const [isComPaper, setIsComPaper] = useState(false)
 
     const [gameStatus, setGameStatus] = useState('default')
+    const [logic, setLogic] = useState(1)
 
 
 function getRandomArbitrary(min, max) {
@@ -94,6 +95,7 @@ function refreshBoard(){
 
 
 function condition(){
+    comChoose()
     if((isRock && isComRock) || (isScissor && isComScissor) || (isPaper && isComPaper)){
         // showDraw();
         
@@ -126,19 +128,19 @@ function condition(){
     }
 }
 
-let logic = -1
 function disableEnable(){
-    logic = logic * -1
-    console.log('disablenable')
-    if (logic == 1){
+    setLogic(logic * -1)
+    if (logic === 1){
         document.getElementById('1').style.pointerEvents = 'none';
         document.getElementById('2').style.pointerEvents = 'none';
         document.getElementById('3').style.pointerEvents = 'none';
+        console.log('disableEnable: stop, ' + logic);
     }
-    if (logic != 1){
+    if (logic !== 1){
         document.getElementById('1').style.pointerEvents = 'auto'; 
         document.getElementById('2').style.pointerEvents = 'auto'; 
         document.getElementById('3').style.pointerEvents = 'auto'; 
+        console.log('disableEnable: start, ' + logic);
     }
 }
 
@@ -146,19 +148,18 @@ function disableEnable(){
 function decideResult(choice){
     if (choice === 'batu'){
         setIsRock(true);
+        condition();
     } else if (choice === 'gunting'){
         setIsScissor(true);
+        condition();
     } else {
         setIsPaper(true);
-    }
-    console.log('yes here')
-    if (choice != 'undefined'){
-        comChoose();
         condition();
     }
 }
 
 function refresh(){
+    console.log('refresh' + logic)
     if (logic == 1){
     disableEnable();
     refreshBoard();
