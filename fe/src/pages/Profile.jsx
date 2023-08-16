@@ -1,7 +1,7 @@
 import React from 'react'
 import { Container } from "react-bootstrap";
 
-const Profile = () => {
+const Profile = ({ user }) => {
 	return (
 		<>
 			<section>
@@ -12,12 +12,12 @@ const Profile = () => {
 							<tr className=''>
 								<th>Username</th>
 								<td> : </td>
-								<td>Username Playaer</td>
+								<td>{user?.username}</td>
 							</tr>
 							<tr className=''>
 								<th>Email</th>
 								<td> : </td>
-								<td>Email Playaer</td>
+								<td>{user?.email}</td>
 							</tr>
 							<tr className=''>
 								<th>Social Media</th>

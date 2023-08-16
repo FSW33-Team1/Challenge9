@@ -6,7 +6,7 @@ module.exports = class UserController {
       const id = parseInt(Object.values(req.params));
       const data = await models.User.findOne({ where: { id: id } });
 
-      if(!data){
+      if (!data) {
         return res.status(404).json({ error: "User not found" });
       }
 
@@ -21,23 +21,21 @@ module.exports = class UserController {
   }
 
   //done
-  async registerUser(req, res, next){
+  async registerUser(req, res, next) {
     try {
-      const {username, password} = req.body;
-      const registeredUser = await models.User.findOne({where: {username: username}});
-      if(!username || !password){
+      const { username, password } = req.body;
+      const registeredUser = await models.User.findOne({ where: { username: username } });
+      if (!username || !password) {
         return res.status(400).send('Username and Password required');
-      } else if (registeredUser !== null){
+      } else if (registeredUser !== null) {
         res.send('Username taken!')
       } else {
-        models.User.create(req.body)
-          .then(()=>{
+        models.User.create({ username, password: bcrypt.hashSync(password, 8) })
+          .then(() => {
             console.log('user created: ' + username)
             res.json(req.body)
           })
           .catch(err => next(err))
-
-        // return models.User.create(req.body)
       }
     } catch (error) {
       console.log(error);
@@ -47,7 +45,7 @@ module.exports = class UserController {
   //done
   async editUser(req, res) {
     try {
-      const {id} = req.params;
+      const { id } = req.params;
       const data = await models.User.findOne({
         where: {
           id: id
@@ -71,7 +69,7 @@ module.exports = class UserController {
 
   async resetPassword(req, res) {
     try {
-      const {id} = req.params;
+      const { id } = req.params;
       const data = await models.User.findOne({
         where: {
           id: id
@@ -89,14 +87,14 @@ module.exports = class UserController {
 
   async addPoint(req, res) {
     try {
-      const {id} = req.params;
+      const { id } = req.params;
       const data = await models.User.findOne({
         where: {
           id: id
         }
       });
 
-      data.total_score +=1;
+      data.total_score += 1;
 
       await data.save();
 
@@ -105,12 +103,12 @@ module.exports = class UserController {
     }
   }
 
-  async showScore(req,res){
+  async showScore(req, res) {
     try {
-      const {id} = (req.params);
+      const { id } = (req.params);
       const user = await models.User.findOne({ where: { id: id } });
 
-      if(!user){
+      if (!user) {
         return res.status(404).json({ error: "Game not found" });
       }
 

@@ -12,9 +12,9 @@ module.exports = (sequelize, DataTypes) => {
       // define association here
     }
 
-    static register = ({username, password}) => {
+    static register = ({ username, password }) => {
       console.log('got here, creating')
-      return this.create({username, password})
+      return this.create({ username, password })
     }
   }
 
@@ -32,7 +32,6 @@ module.exports = (sequelize, DataTypes) => {
       sequelize,
       modelName: "User",
       tableName: "user",
-      freezeTableName: true,
     }
   );
   return User;
