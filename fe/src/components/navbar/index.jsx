@@ -2,8 +2,7 @@ import React from 'react'
 import { Link } from "react-router-dom";
 import { asset_home } from "../../assets/images";
 
-const Navbar = () => {
-
+const Navbar = ({ user, logOut }) => {
 
 	const itemLinks = [
 		{
@@ -14,7 +13,6 @@ const Navbar = () => {
 			name: "Games",
 			url: "/games"
 		},
-
 	]
 
 	return (
